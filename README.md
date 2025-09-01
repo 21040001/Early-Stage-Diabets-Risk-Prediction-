@@ -1,4 +1,3 @@
-Tamam, işte projeyi anlatan, kullanıma hazır bir `README.md` dosyasının içeriği. Bu içeriği doğrudan projenizin kök dizinindeki `README.md` dosyasına kopyalayabilirsiniz.
 
 ```markdown
 # Classification of Early-Stage Diabetes Risk with Machine Learning
