@@ -1,73 +1,57 @@
-Makine Öğrenmesi ile Erken Evre Diyabet Riskinin Sınıflandırılması
-Bu proje, erken evre diyabet riskini sınıflandırmak için çeşitli makine öğrenmesi algoritmalarını değerlendirmektedir. Çalışma, 520 hastadan toplanan 16 farklı semptom özelliğini kullanarak yedi farklı algoritmanın performansını karşılaştırmaktadır.
+# Classification of Early-Stage Diabetes Risk with Machine Learning
 
-📊 Veri Seti
-Veri seti, Hindistan'dan toplanan ve 16'sı bağımsız değişken, 1'i hedef değişken (diyabet durumu: Positive/Negative) olmak üzere toplam 17 özellik içermektedir. Özellikler arasında yaş, cinsiyet, polidipsi (aşırı susama), yorgunluk, bulanık görme, obezite gibi semptomlar bulunmaktadır.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2%2B-orange)](https://scikit-learn.org/stable/)
+[![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 
-Veri ön işleme aşamasında kategorik değişkenler ikili forma dönüştürülmüş (Yes:1, No:0; Male:1, Female:0) ve veri seti %80 eğitim, %20 test olarak ayrılmıştır.
+This repository contains the code and report for a research project that aims to classify the risk of early-stage diabetes using various machine learning algorithms. The study is conducted as part of a Data Science research project at Gazi University.
 
-🧠 Kullanılan Algoritmalar
-Aşağıdaki yedi makine öğrenmesi algoritması uygulanmış ve performansları değerlendirilmiştir:
+---
 
-Naive Bayes
+## 📖 Abstract
 
-Lojistik Regresyon
+Diabetes is a widespread and potentially fatal chronic disease. Early diagnosis and intervention are crucial to mitigate its adverse effects and improve patients' quality of life. This project leverages machine learning to predict diabetes risk based on symptom data, eliminating the need for initial medical procedures like blood tests.
 
-Karar Ağacı
+We used the **Early Stage Diabetes Risk Prediction Dataset**, which includes 16 symptom-based features from 520 individuals. Seven different machine learning models were trained and evaluated. The **Random Forest** algorithm achieved the highest performance with **99% accuracy, precision, recall, and F1-score**.
 
-Rastgele Orman
+---
 
-K-En Yakın Komşu (K-NN)
+## 🗂️ Dataset
 
-Doğrusal Regresyon
+**Source:** [UCI Machine Learning Repository - Early Stage Diabetes Risk Prediction Dataset](https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset)
 
-Yapay Sinir Ağı (YSA)
+**Features:**
+- **17 attributes** (16 symptoms + 1 target variable)
+- **520 instances**
+- Attributes include: `Age`, `Gender`, `Polyuria`, `Polydipsia`, `sudden weight loss`, `weakness`, `Polyphagia`, `Genital thrush`, `visual blurring`, `Itching`, `Irritability`, `delayed healing`, `partial paresis`, `muscle stiffness`, `Alopecia`, `Obesity`
+- **Target:** `Class` (Positive / Negative for diabetes)
 
-📈 Performans Metrikleri
-Modeller aşağıdaki metrikler kullanılarak değerlendirilmiştir:
+**Preprocessing:**
+- Categorical values (`Yes`/`No`, `Male`/`Female`, `Positive`/`Negative`) were converted to binary (`1`/`0`).
+- The dataset was split into **80% training** and **20% testing** using `train_test_split`.
 
-Doğruluk (Accuracy)
+---
 
-Kesinlik (Precision)
+## 🤖 Models Implemented
 
-Hassasiyet (Recall/Sensitivity)
+We implemented and compared the following seven machine learning algorithms:
 
-F1-Skoru
+1.  **Naive Bayes**
+2.  **Logistic Regression**
+3.  **Decision Tree**
+4.  **Random Forest**
+5.  **K-Nearest Neighbors (K-NN)**
+6.  **Linear Regression** (for baseline comparison)
+7.  **Artificial Neural Network (ANN)** with 2 hidden layers
 
-AUC (ROC Eğrisi Altında Kalan Alan)
+---
 
-🏆 Sonuçlar
-Model	Doğruluk	Kesinlik	Hassasiyet	AUC	F1-Skoru
-Naive Bayes	0.91	0.90	0.90	0.95	0.90
-K-NN	0.93	0.87	0.90	0.98	0.88
-Lojistik Regresyon	0.92	0.92	0.90	0.97	0.91
-Karar Ağacı	0.98	0.97	0.99	0.98	0.98
-Rastgele Orman	0.99	0.99	0.99	1.00	0.99
-Doğrusal Regresyon	0.60	0.92	0.90	0.98	0.91
-Yapay Sinir Ağı	0.97	0.96	0.98	1.00	0.97
-En yüksek performans Rastgele Orman algoritması tarafından elde edilmiştir.
+## ⚙️ Installation & Usage
 
-📌 Çıkarımlar
-Rastgele Orman ve Yapay Sinir Ağı modelleri en yüksek doğruluk ve AUC değerlerine ulaşmıştır.
+### Prerequisites
+Ensure you have Python 3.8+ installed along with the required libraries.
 
-Doğrusal Regresyon, ikili sınıflandırma için uygun olmadığından en düşük performansı göstermiştir.
-
-Semptom tabanlı verilerle erken diyabet teşhisi yüksek doğrulukla mümkündür.
-
-🔮 Öneriler
-Derin öğrenme ve XGBoost gibi daha gelişmiş algoritmaların denenmesi
-
-Daha genç ve cinsiyet açısından dengeli veri setleriyle çalışılması
-
-Gerçek zamanlı tarama sistemlerine entegrasyon için mobil uyumlu modeller geliştirilmesi
-
-📄 Etik Beyan
-Bu çalışmada kimliksizleştirilmiş ve halka açık bir veri seti kullanılmıştır. Kişisel veri içermediğinden etik kurul onayı gerekmemektedir.
-
-👥 Yazarlar
-Kağan Güner - Gazi Üniversitesi
-
-Davronbek Abdurazzokov - Gazi Üniversitesi
-
-📚 Kaynaklar
-Makale içerisinde atıf yapılan kaynaklar listesi raporun son sayfasında mevcuttur.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/early-diabetes-risk-prediction.git
+cd early-diabetes-risk-prediction
